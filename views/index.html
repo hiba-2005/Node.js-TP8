@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Images - Express Multer</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <main class="container">
+    <header class="hero">
+      <h1>Gestion des uploads avec Multer</h1>
+      <p>Application Express.js pour téléverser une ou plusieurs images.</p>
+    </header>
+
+    <section class="card">
+      <h2>Upload simple</h2>
+
+      <form action="/upload-simple" method="POST" enctype="multipart/form-data">
+        <label>Choisir une image</label>
+        <input type="file" name="photo" required>
+        <small>Formats acceptés : JPG, PNG, GIF, WebP — max 5 Mo</small>
+
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Upload multiple</h2>
+
+      <form action="/upload-gallery" method="POST" enctype="multipart/form-data">
+        <label>Choisir plusieurs images</label>
+        <input type="file" name="photos" multiple required>
+        <small>Maximum 3 images.</small>
+
+        <button type="submit" class="btn">Créer la galerie</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Upload avec informations</h2>
+
+      <form action="/upload-details" method="POST" enctype="multipart/form-data">
+        <label>Titre</label>
+        <input type="text" name="title" placeholder="Exemple : Mon projet" required>
+
+        <label>Description</label>
+        <textarea name="description" rows="4" placeholder="Ajouter une description"></textarea>
+
+        <label>Image principale</label>
+        <input type="file" name="cover" required>
+
+        <label>Images supplémentaires</label>
+        <input type="file" name="album" multiple>
+
+        <button type="submit" class="btn">Envoyer avec détails</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
